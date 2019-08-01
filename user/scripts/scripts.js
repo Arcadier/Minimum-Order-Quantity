@@ -56,8 +56,9 @@ var userToken = getCookie('webapitoken');
 if (MOQ()) {
   console.log("MOQ Plugin Running");
   $(document).ready(function () {
-    authToken = getAuthToken();
+    // authToken = getAuthToken();
     //If it is the item detail page.
+    console.log("body class name", document.body.className)
     if (document.body.className.match(itemRegex)) {
 
       itemID = document.getElementById("itemGuid").value;
@@ -446,7 +447,7 @@ function clickedme() {
 function returnCustomField(customFieldName) {
   // settings to make the api call to retrieve all the marketplace information
   var settings1 = {
-    "url": "https://" + baseUrl + "/api/v2/marketplaces",
+    "url": "https://" + baseURL + "/api/v2/marketplaces",
     "method": "GET",
     "async": false,
     "headers": {

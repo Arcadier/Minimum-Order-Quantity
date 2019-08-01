@@ -126,7 +126,7 @@ function createCustomField(customFieldName, storedData, customField) {
 function returnCustomField(customFieldName) {
     // gets the users webapitoken
     var userToken = getCookie('webapitoken');
-
+    var baseUrl = document.location.hostname;
     // settings used to make the API call to get all marketplace data
     var settings = {
         "url": "https://" + baseUrl + "/api/v2/marketplaces",
