@@ -9,21 +9,21 @@
  * @constant
  * @type {regex}
  */
-const itemRegex = /item-detail-page[\s\S]*/;
+var itemRegex = /item-detail-page[\s\S]*/;
 
 /**
  * A regex that satisfies the class name of the cart details page.
  * @constant
  * @type {regex}
  */
-const cartRegex = /page-cart[\s\S]*/;
+var cartRegex = /page-cart[\s\S]*/;
 
 /**
  * The base URL of the page to call APIs.
  * @constant
  * @type {String} 
  */
-const baseURL = window.location.hostname;
+var baseURL = window.location.hostname;
 
 /**
  * The Authorization token of the user.
@@ -268,7 +268,7 @@ var fieldRemoved = false;
  * @constant
  * @type {String}
  */
-const customField = "MinimumOrderQuantity";
+var customField = "MinimumOrderQuantity";
 /**
  * the minimum order quantity input tag which has to be found and moved
  * @type {Node}
