@@ -1,8 +1,9 @@
 
 /**
  * @fileoverview this is the admin side code for the minimum order quantity plugin
- * 
+ *
  * @author Abhinav Narayana Balasubramaniam
+ * @author Naseer Ahmed khan
  */
 
 /**
@@ -25,7 +26,7 @@ function getCookie(name) {
 }
 
 /**
- * function to create a custom field 
+ * function to create a custom field
  * @param {String} customFieldName name of the custom field where data is going to be stored inside
  * @param {String} storedData string data which is going to be stored in the value attribute of a custom field
  * @param {JSON|boolean} customField the json of the existing custom field, pass false if it doesn't exist
@@ -139,7 +140,7 @@ function returnCustomField(customFieldName) {
     }
     // JSON object of all the marketplace custom fields
     var marketPlaceCustomFields;
-    // making the ajax call, assigning the custom fields 
+    // making the ajax call, assigning the custom fields
     $.ajax(settings).done(function (response) {
         marketPlaceCustomFields = response.CustomFields;
     })
@@ -160,18 +161,23 @@ $(document).ready(function () {
     // see if the moq has been enabled
     checkedStatusField = returnCustomField("checkedstatus");
     // set the moq to checked depending on whether it has been enabled or not
-    if (checkedStatusField) {
-        var checkedStatus = !!Number(checkedStatusField.Values[0]);
-        if (checkedStatus) {
-            document.getElementById("toggle-button").checked = true;
-        } else {
-            document.getElementById("toggle-button").checked = false;
-        }
-    }
-    else {
-        document.getElementById("toggle-button").checked = false;
-        createCustomField("checkedstatus", "0", checkedStatusField);
-    }
+		var url = window.location.href;
+		if (url.indexOf("admin/plugins")>-1)
+		{
+			if (checkedStatusField) {
+	        var checkedStatus = !!Number(checkedStatusField.Values[0]);
+	        if (checkedStatus) {
+	            document.getElementById("toggle-button").checked = true;
+	        } else {
+	            document.getElementById("toggle-button").checked = false;
+	        }
+	    }
+	    else {
+	        document.getElementById("toggle-button").checked = false;
+	        createCustomField("checkedstatus", "0", checkedStatusField);
+	    }
+		}
+
 
 })
 /**
