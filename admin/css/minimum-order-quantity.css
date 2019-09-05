@@ -1,0 +1,129 @@
+
+.page-minimum-order-quantity .page-header .page-icon .icon.report-icon {
+    background-image: url(../images/moq_icon_grey.svg);
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    margin-top: 0px !important;
+}
+
+.page-minimum-order-quantity .panel-box.minimum-content-container {
+    max-width: 450px;
+    margin: 0 auto;
+    margin-top: 120px;
+    box-shadow: 1px 1px 1px 0px #999;
+    moz-box-shadow: 1px 1px 1px 0px #999;
+    webkit-box-shadow: 1px 1px 1px 0px #999;
+}
+
+.page-minimum-order-quantity .page-content-top .icon-3x.report-icon-big {
+    background-image: url(../images/icons/moq_icon_blue.png);
+    margin-right: 31px;
+    background-repeat: no-repeat;
+    width: 52px;
+    height: 50px;
+}
+.page-minimum-order-quantity .page-header .page-title {
+    vertical-align: middle;
+}
+
+.page-minimum-order-quantity .page-content-top .icon-3x.field-icon-big {
+    background-image: url(../images/moq_icon_blue.svg);
+    margin-right: 0px;
+    background-repeat: no-repeat;
+    width: 70px;
+    /* height: auto; */
+    background-size: contain;
+}
+
+.page-minimum-order-quantity .page-content-top.field-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.page-minimum-order-quantity .field-icon p {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: normal;
+    color: #808080;
+    text-align: center;
+}
+
+.page-minimum-order-quantity .field-icon h2 {
+    font-size: 16px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #494949;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.page-minimum-order-quantity .moq-switch {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 30px;
+}
+
+.page-minimum-order-quantity .moq-switch-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #808080;
+    margin-bottom: 0px;
+}
+
+.page-minimum-order-quantity .panel-box.switch-container .plugin-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #999999;
+    margin-bottom: 0;
+}
+
+.page-minimum-order-quantity .moq-switch .onoffswitch {
+    margin: 0 10px;
+}
+
+.page-minimum-order-quantity .moq-switch .onoffswitch-switch {
+    width: 18px;
+}
+
+.page-minimum-order-quantity .moq-switch .onoffswitch-inner:before {
+    content: "";
+    padding-left: 12px;
+    background-color: #42A1FF;
+    color: #FFFFFF;
+    height: 25px;
+}
+
+.page-minimum-order-quantity .moq-switch .onoffswitch-inner:after {
+    content: "";
+    padding-right: 12px;
+    background-color: #808080;
+    color: #FFFFFF;
+    text-align: right;
+    height: 25px;
+}
+
+.page-minimum-order-quantity .panel-box.switch-container {
+    margin-bottom: 0;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.page-minimum-order-quantity .main-div{
+    position: relative;
+    top:50%;
+    left: 50%;
+    /* transform: translate(-50%,-50%); */
+}
