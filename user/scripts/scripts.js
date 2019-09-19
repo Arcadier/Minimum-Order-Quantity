@@ -52,33 +52,46 @@ var moqVal;
 var userToken = getCookie('webapitoken');
 
 
+$(document).ready(function () {
 //If MOQ is enabled
-if (MOQ()) {
-    console.log("MOQ Plugin Running");
-    $(document).ready(function () {
-        // authToken = getAuthToken();
-        //If it is the item detail page.
-        console.log("body class name", document.body.className)
-        if (document.body.className.match(itemRegex)) {
+    if (MOQ()) {
+        console.log("MOQ Plugin Running");
+            // authToken = getAuthToken();
+            //If it is the item detail page.
+            console.log("body class name", document.body.className)
+            if (document.body.className.match(itemRegex)) {
 
-            itemID = document.getElementById("itemGuid").value;
-            moqVal = moqValue(itemID);
-            // The selector node that is used to set quantity.
-            var quantity = document.getElementById("itemDetailQty");
-            //Disbale or enable add to cart button depending on quantity.
-            quantity.onchange = changedQuantity;
-            var currQuantity = parseInt(quantity.value);
-            //Disbale button if default quantity is less than MOQ.
-            if (moqVal > currQuantity) {
-                disableButton(moqVal);
+                itemID = document.getElementById("itemGuid").value;
+                moqVal = moqValue(itemID);
+                // The selector node that is used to set quantity.
+                var quantity = document.getElementById("itemDetailQty");
+                quantity.value = moqVal;
+                var quantityChildren = quantity.children;
+                var length = quantityChildren.length;
+                for(let i=0;i<moqVal-1;i++){
+                    if(i<length){
+                        var currNode = quantityChildren[i];
+                        $(currNode).addClass("hide");
+                    }
+                }
+                //Disbale or enable add to cart button depending on quantity.
+                quantity.onchange = changedQuantity;
+                var currQuantity = parseInt(quantity.value);
+                //Disbale button if default quantity is less than MOQ.
+                if (moqVal > currQuantity) {
+                    disableButton(moqVal);
+                }
+
+
+
+
+            }
+            //IF it is the cart detail page
+            else if (document.body.className.match(cartRegex)) {
+                setQuantities();
             }
         }
-        //IF it is the cart detail page
-        else if (document.body.className.match(cartRegex)) {
-            setQuantities();
-        }
-    });
-}
+});
 
 
 /**
