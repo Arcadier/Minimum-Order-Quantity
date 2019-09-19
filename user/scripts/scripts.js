@@ -65,15 +65,13 @@ $(document).ready(function () {
                 moqVal = moqValue(itemID);
                 // The selector node that is used to set quantity.
                 var quantity = document.getElementById("itemDetailQty");
-                quantity.value = moqVal;
-                var quantityChildren = quantity.children;
-                var length = quantityChildren.length;
-                for(let i=0;i<moqVal-1;i++){
-                    if(i<length){
-                        var currNode = quantityChildren[i];
-                        $(currNode).addClass("hide");
-                    }
+                
+                var optionNodes = $('.option-value');
+                if(optionNodes.length!=0){
+                    optionNodes[0].onchange = removeOptionsBuyPage;
                 }
+                removeOptionsBuyPage();
+
                 //Disbale or enable add to cart button depending on quantity.
                 quantity.onchange = changedQuantity;
                 var currQuantity = parseInt(quantity.value);
@@ -81,10 +79,6 @@ $(document).ready(function () {
                 if (moqVal > currQuantity) {
                     disableButton(moqVal);
                 }
-
-
-
-
             }
             //IF it is the cart detail page
             else if (document.body.className.match(cartRegex)) {
@@ -93,6 +87,18 @@ $(document).ready(function () {
         }
 });
 
+function removeOptionsBuyPage(){
+    var quantity = document.getElementById("itemDetailQty");
+    quantity.value = moqVal;
+    var quantityChildren = quantity.children;
+    var length = quantityChildren.length;
+    for(let i=0;i<moqVal-1;i++){
+        if(i<length){
+            var currNode = quantityChildren[i];
+            $(currNode).addClass("hide");
+        }
+    }
+}
 
 /**
  * MOQ - This function checks if the admin has enabled MOQ by checking
