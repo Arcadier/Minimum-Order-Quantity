@@ -336,14 +336,14 @@ $(document).ready(
                 if (shouldWork) {
                     if (Number(shouldWork.Values[0])) {
                         change = true;
-                        changeItemPage();
+                        checkForField();
                     } else {
                         change = false;
-                        changeItemPage();
+                        checkForField();
                     }
                 } else {
                     change = false;
-                    changeItemPage();
+                    checkForField();
                 }
             }, 300);
         }
@@ -526,7 +526,7 @@ function changeItemPage() {
     // checking if the MOQ plugin has been turned on from the admin page
     if (change) {
         // making the row node for the MOQ input tag to be added into
-        var minQuan = $.parseHTML('<div class="inventory-section"></div>')[0];
+        var minQuan = $.parseHTML('<div></div>')[0];
         // appending the moq input tag into the row made
         minQuan.appendChild(requiredTag);
         // making the slider node which needs to be appended
@@ -558,4 +558,25 @@ function changeItemPage() {
         // appending the minimum quantity row to the required position
         appendRequiredField(minQuan);
     }
+}
+
+function checkForField(){
+    var moved = false;
+    function customMutationObserver(){
+        setTimeout(function(){
+            try{
+                if($('#customFields')[0].children.length){
+                    moved = true;
+                    changeItemPage();
+                }
+            }   
+            catch{
+
+            }
+            if(!moved){
+                customMutationObserver();
+            }
+        },1000);
+    }
+    customMutationObserver();
 }
