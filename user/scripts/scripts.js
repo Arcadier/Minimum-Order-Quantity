@@ -392,7 +392,7 @@ function callback(mutationList) {
                     // if the plugin is enabled then change the location of the custom field to a different position in the item upload page
                     if (change) {
                         // make the row for minimum quantity
-                        var minQuan = $.parseHTML('<div class="inventory-section"></div>')[0];
+                        var minQuan = $.parseHTML('<div></div>')[0];
                         // appending the required custom field tag to the row
                         minQuan.appendChild(requiredTag);
                         // make the checker which lets the merchant to enable/disable MOQ for the particular item
