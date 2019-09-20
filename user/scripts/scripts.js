@@ -383,6 +383,7 @@ function callback(mutationList) {
                             break;
                         }
                     }
+                    requiredTag.children[0].innerText="MINIMUM ORDER QUANTITY";
                     var parentNode = requiredTag.parentElement;
                     // remove the required tag from the custom-field table
                     parentNode.removeChild(requiredTag);
@@ -521,6 +522,7 @@ function changeItemPage() {
     }
     // the parent node of the MOQ input tag
     var parentNode = requiredTag.parentElement;
+    requiredTag.children[0].innerText="MINIMUM ORDER QUANTITY";
     // removing the MOQ input tag from the custom fields div
     parentNode.removeChild(requiredTag);
     // checking if the MOQ plugin has been turned on from the admin page
