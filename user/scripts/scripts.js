@@ -79,6 +79,14 @@ $(document).ready(function () {
                 if (moqVal > currQuantity) {
                     disableButton(moqVal);
                 }
+                var jackson = $(".desc-sec-opt *");
+                for(var j=0; j<jackson.length; j++){
+                    var jacky = jackson[j];
+                    if(jacky.innerHTML == "1"){
+                        console.log("found");
+                        jacky.parentNode.setAttribute("style", "display:none;");
+                    }else{console.log(jacky.innerHTML);}
+                }
             }
             //IF it is the cart detail page
             else if (document.body.className.match(cartRegex)) {
@@ -98,6 +106,16 @@ $(document).ready(function () {
                         }
                     }
                 });   
+            }
+        }//
+        else {
+            var jackson = $(".desc-sec-opt *");
+            for(var j=0; j<jackson.length; j++){
+                var jacky = jackson[j];
+                if(jacky.innerHTML == "Minimum Order Quantity:"){
+                    console.log("found");
+                    jacky.parentNode.setAttribute("style", "display:none;");
+                }else{console.log(jacky.innerHTML);}
             }
         }
 });
