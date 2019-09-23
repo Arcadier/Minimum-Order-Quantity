@@ -82,7 +82,22 @@ $(document).ready(function () {
             }
             //IF it is the cart detail page
             else if (document.body.className.match(cartRegex)) {
-                setQuantities();
+                //setQuantities();
+                $(".cart-item-row").each(function(index){
+                    moqVal = $(this).attr("data-cartquantityvalue");
+                    var options = $(".qty-selectbpx *", $(this));
+                    for (var i = 0; i < options.length; i++) {
+                        var option = options[i];
+                        if (option.nodeName == "OPTION") {
+                            if (moqVal > option.value) {
+                                option.remove();
+                            }
+                            else {
+                                break;
+                            }
+                        }
+                    }
+                });   
             }
         }
 });
@@ -154,7 +169,7 @@ function moqValue(itemID) {
             //Iterate through the Custom Fields to find MinimumOrderQuantity
             for (var i = 0; i < cfs.length; i++) {
                 var cf = cfs[i];
-                if (cf["Name"] == "MinimumOrderQuantity") {
+                if (cf["Name"] == "Minimum Order Quantity") {
                     moqVal = parseInt(cf["Values"][0]);
                 }
             }
@@ -287,7 +302,7 @@ var fieldRemoved = false;
  * @constant
  * @type {String}
  */
-var customField = "MinimumOrderQuantity";
+var customField = "Minimum Order Quantity";
 /**
  * the minimum order quantity input tag which has to be found and moved
  * @type {Node}
