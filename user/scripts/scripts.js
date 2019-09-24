@@ -463,6 +463,8 @@ function callback(mutationList) {
             requiredTag.children[1].setAttribute("disabled", "true");
             // append the row element to the required position
             appendRequiredField(minQuan);
+            console.log("hideMoq called");
+            hideMOQ();
           }
         }
         break;
@@ -603,6 +605,7 @@ function changeItemPage() {
     }
     // appending the minimum quantity row to the required position
     appendRequiredField(minQuan);
+    hideMOQ();
   }
 }
 
@@ -622,4 +625,26 @@ function checkForField() {
     }, 1000);
   }
   customMutationObserver();
+}
+
+var hideMoqRun = true;
+function hideMOQ() {
+  try {
+    // console.log("try");
+    var customFields = document.getElementById("customFields").children;
+    for (let i = 0; i < customFields.length; i++) {
+      var currField = customFields[i];
+      // console.log(currField.children[0].innerText);
+      // console.log(currField.children[0].innerText == "MINIMUM ORDER QUANTITY");
+      if (currField.children[0].innerText == "MINIMUM ORDER QUANTITY") {
+        $(currField).addClass("hide");
+        hideMoqRun = false;
+      }
+    }
+  } catch {}
+  setTimeout(function() {
+    if (hideMoqRun) {
+      hideMOQ();
+    }
+  }, 500);
 }
