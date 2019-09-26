@@ -551,7 +551,7 @@ function changeItemPage() {
     // checking if the MOQ plugin has been turned on from the admin page
     if (change) {
         // making the row node for the MOQ input tag to be added into
-        var minQuan = $.parseHTML('<div></div>')[0];
+        var minQuan = $.parseHTML('<div class="inventory-section"></div>')[0];
         // appending the moq input tag into the row made
         minQuan.appendChild(requiredTag);
         // making the slider node which needs to be appended
